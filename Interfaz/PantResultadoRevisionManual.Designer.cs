@@ -1,0 +1,189 @@
+﻿namespace PPAI2025.Interfaz
+{
+    partial class PantResultadoRevisionManual
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.dataGridEventos = new System.Windows.Forms.DataGridView();
+            this.FechaOcurrencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LatitudEpicentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LongitudEpicentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LatitudHipocentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LongitudHipocentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Magnitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblClickEvento = new System.Windows.Forms.Label();
+            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.btnRechazar = new System.Windows.Forms.Button();
+            this.btnRevisionExperto = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridEventos)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dataGridEventos
+            // 
+            this.dataGridEventos.AllowUserToDeleteRows = false;
+            this.dataGridEventos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridEventos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FechaOcurrencia,
+            this.LatitudEpicentro,
+            this.LongitudEpicentro,
+            this.LatitudHipocentro,
+            this.LongitudHipocentro,
+            this.Magnitud});
+            this.dataGridEventos.Location = new System.Drawing.Point(15, 15);
+            this.dataGridEventos.Margin = new System.Windows.Forms.Padding(6);
+            this.dataGridEventos.Name = "dataGridEventos";
+            this.dataGridEventos.ReadOnly = true;
+            this.dataGridEventos.RowHeadersWidth = 82;
+            this.dataGridEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridEventos.Size = new System.Drawing.Size(1326, 288);
+            this.dataGridEventos.TabIndex = 0;
+            this.dataGridEventos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // FechaOcurrencia
+            // 
+            this.FechaOcurrencia.DataPropertyName = "FechaOcurrencia";
+            this.FechaOcurrencia.HeaderText = "Fecha de Ocurrencia";
+            this.FechaOcurrencia.MinimumWidth = 10;
+            this.FechaOcurrencia.Name = "FechaOcurrencia";
+            this.FechaOcurrencia.ReadOnly = true;
+            this.FechaOcurrencia.Width = 200;
+            // 
+            // LatitudEpicentro
+            // 
+            this.LatitudEpicentro.DataPropertyName = "LatitudEpicentro";
+            this.LatitudEpicentro.HeaderText = "Latitud Epicentro";
+            this.LatitudEpicentro.MinimumWidth = 10;
+            this.LatitudEpicentro.Name = "LatitudEpicentro";
+            this.LatitudEpicentro.ReadOnly = true;
+            this.LatitudEpicentro.Width = 200;
+            // 
+            // LongitudEpicentro
+            // 
+            this.LongitudEpicentro.DataPropertyName = "LongitudEpicentro";
+            this.LongitudEpicentro.HeaderText = "Longitud Epicentro";
+            this.LongitudEpicentro.MinimumWidth = 10;
+            this.LongitudEpicentro.Name = "LongitudEpicentro";
+            this.LongitudEpicentro.ReadOnly = true;
+            this.LongitudEpicentro.Width = 200;
+            // 
+            // LatitudHipocentro
+            // 
+            this.LatitudHipocentro.DataPropertyName = "LatitudHipocentro";
+            this.LatitudHipocentro.HeaderText = "Latitud Hipocentro";
+            this.LatitudHipocentro.MinimumWidth = 10;
+            this.LatitudHipocentro.Name = "LatitudHipocentro";
+            this.LatitudHipocentro.ReadOnly = true;
+            this.LatitudHipocentro.Width = 200;
+            // 
+            // LongitudHipocentro
+            // 
+            this.LongitudHipocentro.DataPropertyName = "LongitudHipocentro";
+            this.LongitudHipocentro.HeaderText = "Longitud Hipocentro";
+            this.LongitudHipocentro.MinimumWidth = 10;
+            this.LongitudHipocentro.Name = "LongitudHipocentro";
+            this.LongitudHipocentro.ReadOnly = true;
+            this.LongitudHipocentro.Width = 200;
+            // 
+            // Magnitud
+            // 
+            this.Magnitud.DataPropertyName = "ValorMagnitud";
+            this.Magnitud.HeaderText = "Magnitud";
+            this.Magnitud.MinimumWidth = 10;
+            this.Magnitud.Name = "Magnitud";
+            this.Magnitud.ReadOnly = true;
+            this.Magnitud.Width = 200;
+            // 
+            // lblClickEvento
+            // 
+            this.lblClickEvento.Location = new System.Drawing.Point(0, 0);
+            this.lblClickEvento.Name = "lblClickEvento";
+            this.lblClickEvento.Size = new System.Drawing.Size(100, 23);
+            this.lblClickEvento.TabIndex = 0;
+            // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.Location = new System.Drawing.Point(1350, 15);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(219, 85);
+            this.btnConfirmar.TabIndex = 1;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // btnRechazar
+            // 
+            this.btnRechazar.Location = new System.Drawing.Point(1350, 117);
+            this.btnRechazar.Name = "btnRechazar";
+            this.btnRechazar.Size = new System.Drawing.Size(219, 85);
+            this.btnRechazar.TabIndex = 2;
+            this.btnRechazar.Text = "Rechazar";
+            this.btnRechazar.UseVisualStyleBackColor = true;
+            this.btnRechazar.Click += new System.EventHandler(this.tomarIngresoSeleccionAccion_Click);
+            // 
+            // btnRevisionExperto
+            // 
+            this.btnRevisionExperto.Location = new System.Drawing.Point(1350, 218);
+            this.btnRevisionExperto.Name = "btnRevisionExperto";
+            this.btnRevisionExperto.Size = new System.Drawing.Size(219, 85);
+            this.btnRevisionExperto.TabIndex = 3;
+            this.btnRevisionExperto.Text = "Solicitar Revision Experto";
+            this.btnRevisionExperto.UseVisualStyleBackColor = true;
+            this.btnRevisionExperto.Click += new System.EventHandler(this.btnRevisionExperto_Click);
+            // 
+            // PantResultadoRevisionManual
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(2025, 1132);
+            this.Controls.Add(this.btnRevisionExperto);
+            this.Controls.Add(this.btnRechazar);
+            this.Controls.Add(this.btnConfirmar);
+            this.Controls.Add(this.dataGridEventos);
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Name = "PantResultadoRevisionManual";
+            this.Text = "ResultadoRevisionManual";
+            this.Load += new System.EventHandler(this.Principal_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridEventos)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.DataGridView dataGridEventos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaOcurrencia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LatitudEpicentro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LongitudEpicentro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LatitudHipocentro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LongitudHipocentro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Magnitud;
+        private System.Windows.Forms.Label lblClickEvento;
+        private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.Button btnRechazar;
+        private System.Windows.Forms.Button btnRevisionExperto;
+    }
+}

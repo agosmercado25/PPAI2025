@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{54F509E4-C146-4951-9563-FA2758FE1EC4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PPAI2025</RootNamespace>
+    <AssemblyName>PPAI2025</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccesoDatos\AD_AlcanceSismo.cs" />
+    <Compile Include="AccesoDatos\AD_CambioEstado.cs" />
+    <Compile Include="AccesoDatos\AD_ClasificacionSismo.cs" />
+    <Compile Include="AccesoDatos\AD_DetalleMuestraSismica.cs" />
+    <Compile Include="AccesoDatos\AD_Estado.cs" />
+    <Compile Include="AccesoDatos\AD_EventoSismico.cs" />
+    <Compile Include="AccesoDatos\AD_MagnitudSismo.cs" />
+    <Compile Include="AccesoDatos\AD_MuestraSismica.cs" />
+    <Compile Include="AccesoDatos\AD_OrigenSismo.cs" />
+    <Compile Include="AccesoDatos\AD_SerieTemporal.cs" />
+    <Compile Include="AccesoDatos\AD_EstacionSismologica.cs" />
+    <Compile Include="AccesoDatos\AD_Sismografo.cs" />
+    <Compile Include="AccesoDatos\AD_TipoDato.cs" />
+    <Compile Include="Controlador\GestorResultadoRevisionManual.cs" />
+    <Compile Include="Entidades\AlcanceSismo.cs" />
+    <Compile Include="Entidades\CambioEstado.cs" />
+    <Compile Include="Entidades\ClasificacionSismo.cs" />
+    <Compile Include="Entidades\DetalleMuestraSismica.cs" />
+    <Compile Include="Entidades\DetalleMuestraSismicaInfo.cs" />
+    <Compile Include="Entidades\EstacionSismologica.cs" />
+    <Compile Include="Entidades\Estado.cs" />
+    <Compile Include="Entidades\EventoSismico.cs" />
+    <Compile Include="Entidades\MagnitudRichter.cs" />
+    <Compile Include="Entidades\MuestraSismica.cs" />
+    <Compile Include="Entidades\MuestraSismicaInfo.cs" />
+    <Compile Include="Entidades\OrigenDeGeneracion.cs" />
+    <Compile Include="Entidades\SerieTemporal.cs" />
+    <Compile Include="Entidades\SerieTemporalInfo.cs" />
+    <Compile Include="Entidades\Sesion.cs" />
+    <Compile Include="Entidades\Sismografo.cs" />
+    <Compile Include="Entidades\TipoDeDato.cs" />
+    <Compile Include="Entidades\TipoDeDatoInfo.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Interfaz\Login1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\Login1.Designer.cs">
+      <DependentUpon>Login1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaz\PantResultadoRevisionManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\PantResultadoRevisionManual.Designer.cs">
+      <DependentUpon>PantResultadoRevisionManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Interfaz\Login1.resx">
+      <DependentUpon>Login1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\PantResultadoRevisionManual.resx">
+      <DependentUpon>PantResultadoRevisionManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
