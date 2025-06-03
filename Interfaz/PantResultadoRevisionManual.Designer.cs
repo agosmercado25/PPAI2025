@@ -124,7 +124,7 @@
             // btnConfirmar
             // 
             this.btnConfirmar.Enabled = false;
-            this.btnConfirmar.Location = new System.Drawing.Point(675, 8);
+            this.btnConfirmar.Location = new System.Drawing.Point(675, 13);
             this.btnConfirmar.Margin = new System.Windows.Forms.Padding(2);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(110, 44);
@@ -136,7 +136,7 @@
             // btnRechazar
             // 
             this.btnRechazar.Enabled = false;
-            this.btnRechazar.Location = new System.Drawing.Point(675, 61);
+            this.btnRechazar.Location = new System.Drawing.Point(675, 65);
             this.btnRechazar.Margin = new System.Windows.Forms.Padding(2);
             this.btnRechazar.Name = "btnRechazar";
             this.btnRechazar.Size = new System.Drawing.Size(110, 44);
@@ -148,7 +148,7 @@
             // btnRevisionExperto
             // 
             this.btnRevisionExperto.Enabled = false;
-            this.btnRevisionExperto.Location = new System.Drawing.Point(675, 113);
+            this.btnRevisionExperto.Location = new System.Drawing.Point(675, 114);
             this.btnRevisionExperto.Margin = new System.Windows.Forms.Padding(2);
             this.btnRevisionExperto.Name = "btnRevisionExperto";
             this.btnRevisionExperto.Size = new System.Drawing.Size(110, 44);
@@ -160,7 +160,7 @@
             // btnVisualizarMapa
             // 
             this.btnVisualizarMapa.Enabled = false;
-            this.btnVisualizarMapa.Location = new System.Drawing.Point(788, 8);
+            this.btnVisualizarMapa.Location = new System.Drawing.Point(788, 13);
             this.btnVisualizarMapa.Margin = new System.Windows.Forms.Padding(2);
             this.btnVisualizarMapa.Name = "btnVisualizarMapa";
             this.btnVisualizarMapa.Size = new System.Drawing.Size(103, 44);
@@ -172,13 +172,14 @@
             // btnSismograma
             // 
             this.btnSismograma.Enabled = false;
-            this.btnSismograma.Location = new System.Drawing.Point(788, 61);
+            this.btnSismograma.Location = new System.Drawing.Point(788, 65);
             this.btnSismograma.Margin = new System.Windows.Forms.Padding(2);
             this.btnSismograma.Name = "btnSismograma";
             this.btnSismograma.Size = new System.Drawing.Size(103, 44);
             this.btnSismograma.TabIndex = 5;
             this.btnSismograma.Text = "Generar Sismograma";
             this.btnSismograma.UseVisualStyleBackColor = true;
+            this.btnSismograma.Click += new System.EventHandler(this.btnSismograma_Click);
             // 
             // treeAgrupados
             // 

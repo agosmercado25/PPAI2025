@@ -48,7 +48,6 @@ namespace PPAI2025.Interfaz
         public void mostrarDatosEventos(List<EventoSismico> eventos)
         {
             dataGridEventos.DataSource = null;
-
             dataGridEventos.DataSource = eventos;
 
             dataGridEventos.Columns["FechaOcurrencia"].HeaderText = "Fecha de Ocurrencia";
@@ -56,12 +55,12 @@ namespace PPAI2025.Interfaz
             dataGridEventos.Columns["LatitudHipocentro"].HeaderText = "Latitud Hipocentro";
             dataGridEventos.Columns["LongitudEpicentro"].HeaderText = "Longitud Epicentro";
             dataGridEventos.Columns["LongitudHipocentro"].HeaderText = "Longitud Hipocentro";
-
+            
             dataGridEventos.Columns["Id"].Visible = false;
-            dataGridEventos.Columns["Magnitud"].Visible = false;
             dataGridEventos.Columns["Alcance"].Visible = false;
             dataGridEventos.Columns["Clasificacion"].Visible = false;
             dataGridEventos.Columns["Origen"].Visible = false;
+            dataGridEventos.Columns[9].Visible = false;
 
             dataGridEventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridEventos.MultiSelect = false;
@@ -73,6 +72,7 @@ namespace PPAI2025.Interfaz
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if(e.RowIndex < 0) return;
 
             int index = e.RowIndex;
@@ -86,13 +86,15 @@ namespace PPAI2025.Interfaz
             }
 
             btnSismograma.Enabled = true;
+            btnConfirmar.Enabled = true;
+            btnRechazar.Enabled = true;
+            btnRevisionExperto.Enabled = true;
+            btnVisualizarMapa.Enabled = true;
 
         }
 
         public void solicitarOpcionVisualizarMapa()
         {
-
-            //btnVisualizarMapa.Enabled = true;
         }
 
         public void tomarIngresoOpcVisualizarMapa()
@@ -115,9 +117,9 @@ namespace PPAI2025.Interfaz
         {
             MessageBox.Show("Seleccione una opcion a realizar para el evento");
             
-            btnConfirmar.Enabled = true;
-            btnRechazar.Enabled = true;
-            btnRevisionExperto.Enabled = true;
+            //btnConfirmar.Enabled = true;
+            //btnRechazar.Enabled = true;
+            //btnRevisionExperto.Enabled = true;
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -127,7 +129,7 @@ namespace PPAI2025.Interfaz
 
         private void btnRevisionExperto_Click(object sender, EventArgs e)
         {
-            gestor.buscarEstadoRevisionExperto();
+            gestor.tomarSeleccionAccionRevisionExperto();
         }
 
         private void tomarIngresoSeleccionAccion_Click(object sender, EventArgs e)
@@ -211,6 +213,11 @@ namespace PPAI2025.Interfaz
         private void treeAgrupados_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
+        }
+
+        private void btnSismograma_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("No implementada");
         }
     }
 

@@ -94,7 +94,7 @@ namespace PPAI2025.Entidades
         public void actualizarUltimoEstado(List<CambioEstado> listUltimos, DateTime fechaHoraActual, Estado estado, Usuario usuarioActual)
         {
 
-            MessageBox.Show("Cantidad cambios estado: " + this.CambioEstado.Count.ToString());
+            //MessageBox.Show("Cantidad cambios estado: " + this.CambioEstado.Count.ToString());
 
             CambioEstado cambioEstadoDelEvento = listUltimos
                     .FirstOrDefault(ce => ce.IdEvento == this.Id);
@@ -118,7 +118,7 @@ namespace PPAI2025.Entidades
                 Usuario = usuario
             };
 
-            MessageBox.Show("Nuevo ultimo cambio estado: " + nuevoCambio.EstadoActual.Nombre.ToString());
+            MessageBox.Show("Nuevo cambio estado: " + nuevoCambio.EstadoActual.Nombre.ToString());
             this.CambioEstado.Add(nuevoCambio);
         }
 

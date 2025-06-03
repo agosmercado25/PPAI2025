@@ -141,6 +141,7 @@ namespace PPAI2025.Controlador
 
             //usuario = buscarUsuarioLogueado();
             actualizarUltimoEstado(esSelec, listCambiosEstados, fechaHoraActual, esConfirmado, this.sesionActual);
+            finCU();
             
 
         }
@@ -151,6 +152,7 @@ namespace PPAI2025.Controlador
 
             //usuario = buscarUsuarioLogueado();
             actualizarUltimoEstado(esSelec, listCambiosEstados, fechaHoraActual, esRevisionExperto, this.sesionActual);
+            finCU();
 
         }
 
@@ -181,10 +183,14 @@ namespace PPAI2025.Controlador
         
         public void actualizarUltimoEstado(EventoSismico eventoSeleccionado,List<CambioEstado> listUltimos, DateTime fechaHoraActual, Estado estadoAsignar, Usuario usuarioActual)
         {
-            MessageBox.Show("Usuario " + usuarioActual.ToString());
+            // MessageBox.Show("Usuario " + usuarioActual.ToString());
             foreach (CambioEstado e in listUltimos)
             {
-                eventoSeleccionado.actualizarUltimoEstado(listUltimos,fechaHoraActual,estadoAsignar,usuarioActual);
+                if(e.IdEvento == eventoSeleccionado.Id)
+                {
+                    eventoSeleccionado.actualizarUltimoEstado(listUltimos, fechaHoraActual, estadoAsignar, usuarioActual);
+                }
+                
             }
 
         }
@@ -243,6 +249,7 @@ namespace PPAI2025.Controlador
         public void finCU()
         {
             MessageBox.Show("FIN CU");
+            Application.Exit();
         }
     }
 }
