@@ -91,8 +91,11 @@ namespace PPAI2025.Entidades
         }
 
 
-        public void actualizarUltimoEstado(List<CambioEstado> listUltimos, DateTime fechaHoraActual, Estado estado)
+        public void actualizarUltimoEstado(List<CambioEstado> listUltimos, DateTime fechaHoraActual, Estado estado, Usuario usuarioActual)
         {
+
+            MessageBox.Show("Cantidad cambios estado: " + this.CambioEstado.Count.ToString());
+
             CambioEstado cambioEstadoDelEvento = listUltimos
                     .FirstOrDefault(ce => ce.IdEvento == this.Id);
 
@@ -100,21 +103,22 @@ namespace PPAI2025.Entidades
             {
                 cambioEstadoDelEvento.setFechaHoraFin(fechaHoraActual);
             }
-
-            crearNuevoCambioEstado(estado);
+            crearNuevoCambioEstado(estado,usuarioActual);
         }
 
-        private void crearNuevoCambioEstado(Estado est)
+        private void crearNuevoCambioEstado(Estado est, Usuario usuario)
         {
             CambioEstado nuevoCambio = new CambioEstado
             {
-                Id = 100000,
+                Id = 100,
                 FechaHoraFin = null,
                 FechaHoraInicio = DateTime.Now,
                 EstadoActual = est,
-                IdEvento = this.Id
+                IdEvento = this.Id,
+                Usuario = usuario
             };
 
+            MessageBox.Show("Nuevo ultimo cambio estado: " + nuevoCambio.EstadoActual.Nombre.ToString());
             this.CambioEstado.Add(nuevoCambio);
         }
 
@@ -127,24 +131,7 @@ namespace PPAI2025.Entidades
 
             return (nombreAlcance, nombreClasificacion, nombreOrigen);
         }
-        /*
-        public List<SerieTemporal> buscarSeriesTemporales()
-        {
-            List<SerieTemporal> seriesTemporales = new List<SerieTemporal>();
-            foreach(SerieTemporal series in this.SerieTemporal)
-            {
-                series.getDatos();
-                seriesTemporales.Add(series);
-            }
-
-            foreach(SerieTemporal series in seriesTemporales)
-            {
-                series.buscarEstacionSismografica();
-            }
-
-            return seriesTemporales;
-        }
-        */
+        
         public object buscarSeriesTemporales()
         {
             var gruposPorEstacion = this.SerieTemporal
@@ -164,9 +151,7 @@ namespace PPAI2025.Entidades
 
             string jsonOutput = JsonSerializer.Serialize(gruposPorEstacion, options);
 
-            // var gruposPorEstaciones = JsonSerializer.Deserialize<List<GrupoEstacionDTO>>(jsonOutput);
             
-            // Cargar los datos en el TreeView
             return gruposPorEstacion;
         }
     }

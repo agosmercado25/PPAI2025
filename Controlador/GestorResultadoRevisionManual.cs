@@ -26,7 +26,7 @@ namespace PPAI2025.Controlador
         private DateTime fechaHoraActual;
         private dynamic seriesTemporales;
         private SerieTemporal serieTemporalSelec;
-        private Usuario usuario;
+        private Usuario sesionActual;
         private List<Estado> estados;
         private Estado estadoEnRevision;
         private List<CambioEstado> listCambiosEstados;
@@ -48,8 +48,6 @@ namespace PPAI2025.Controlador
         {
             this.estados = AD_Estado.BuscarEstados();
             this.listES = AD_EventoSismico.BuscarTodosEventosSismicos();
-            //this.seriesTemporales = AD_SerieTemporal.BuscarTodasLasSeriesTemporales();
-
         }
 
         private (List<EventoSismico>, List<CambioEstado> ) buscaEventosAutodetectados()
@@ -89,11 +87,12 @@ namespace PPAI2025.Controlador
             esSelec = eventoSeleccionado;
             esBloqRevi = buscarEstadoBloqueadoEnRevision();
             fechaHoraActual = getFechaHoraActual();
-            //usuario = buscarUsuarioLogueado();
-            actualizarUltimoEstado(esSelec,listCambiosEstados,fechaHoraActual, esBloqRevi);
+            this.sesionActual = buscarUsuarioLogueado();
+            actualizarUltimoEstado(esSelec,listCambiosEstados,fechaHoraActual, esBloqRevi, this.sesionActual);
             buscarDatosSismicosEventoSeleccionado(esSelec);
             habilitarOpcionVisualizarMapa();
             permitirModificacionDatos();
+            pantalla.solicitarOpcionVisualizarMapa();
         }
 
         public void habilitarOpcionVisualizarMapa()
@@ -128,7 +127,7 @@ namespace PPAI2025.Controlador
             esRechazado = buscarEstadoRechazado();
             
             //usuario = buscarUsuarioLogueado();
-            actualizarUltimoEstado(esSelec, listCambiosEstados, fechaHoraActual, esRechazado);
+            actualizarUltimoEstado(esSelec, listCambiosEstados, fechaHoraActual, esRechazado, this.sesionActual);
             //FIN CU
             finCU();
 
@@ -141,7 +140,7 @@ namespace PPAI2025.Controlador
             esConfirmado = buscarEstadoConfirmado();
 
             //usuario = buscarUsuarioLogueado();
-            actualizarUltimoEstado(esSelec, listCambiosEstados, fechaHoraActual, esConfirmado);
+            actualizarUltimoEstado(esSelec, listCambiosEstados, fechaHoraActual, esConfirmado, this.sesionActual);
             
 
         }
@@ -151,7 +150,7 @@ namespace PPAI2025.Controlador
             esRevisionExperto = buscarEstadoRevisionExperto();
 
             //usuario = buscarUsuarioLogueado();
-            actualizarUltimoEstado(esSelec, listCambiosEstados, fechaHoraActual, esRevisionExperto);
+            actualizarUltimoEstado(esSelec, listCambiosEstados, fechaHoraActual, esRevisionExperto, this.sesionActual);
 
         }
 
@@ -174,17 +173,20 @@ namespace PPAI2025.Controlador
             return DateTime.Now;
         }
         
-        public void buscarUsuarioLogueado()
+        public Usuario buscarUsuarioLogueado()
         {
-            
+            Usuario usuarioActual = AppSession.SesionActual.conocerUsuario();
+            return usuarioActual;
         }
         
-        public void actualizarUltimoEstado(EventoSismico eventoSeleccionado,List<CambioEstado> listUltimos, DateTime fechaHoraActual, Estado estadoAsignar)
+        public void actualizarUltimoEstado(EventoSismico eventoSeleccionado,List<CambioEstado> listUltimos, DateTime fechaHoraActual, Estado estadoAsignar, Usuario usuarioActual)
         {
-            foreach(CambioEstado e in listUltimos)
+            MessageBox.Show("Usuario " + usuarioActual.ToString());
+            foreach (CambioEstado e in listUltimos)
             {
-                eventoSeleccionado.actualizarUltimoEstado(listUltimos,fechaHoraActual,estadoAsignar);
+                eventoSeleccionado.actualizarUltimoEstado(listUltimos,fechaHoraActual,estadoAsignar,usuarioActual);
             }
+
         }
 
         private void buscarDatosSismicosEventoSeleccionado(EventoSismico eventoSeleccionado)
@@ -193,6 +195,8 @@ namespace PPAI2025.Controlador
             //this.seriesTemporales = eventoSeleccionado.buscarSeriesTemporales();
             this.seriesTemporales = eventoSeleccionado.buscarSeriesTemporales();
             this.pantalla.CargarDatosEnTreeView(this.seriesTemporales, alcance, clasificacion, origen);
+            llamarCUGenerarSismograma();
+            habilitarOpcionVisualizarMapa();
         }
 
         public Estado buscarEstadoRechazado()
@@ -232,6 +236,10 @@ namespace PPAI2025.Controlador
             return null;
         }
 
+        public void llamarCUGenerarSismograma()
+        {
+
+        }
         public void finCU()
         {
             MessageBox.Show("FIN CU");

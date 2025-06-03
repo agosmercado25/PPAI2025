@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.dataGridEventos = new System.Windows.Forms.DataGridView();
+            this.FechaOcurrencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LatitudEpicentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LongitudEpicentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LatitudHipocentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LongitudHipocentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Magnitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblClickEvento = new System.Windows.Forms.Label();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnRechazar = new System.Windows.Forms.Button();
@@ -36,12 +42,6 @@
             this.btnVisualizarMapa = new System.Windows.Forms.Button();
             this.btnSismograma = new System.Windows.Forms.Button();
             this.treeAgrupados = new System.Windows.Forms.TreeView();
-            this.FechaOcurrencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LatitudEpicentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LongitudEpicentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LatitudHipocentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LongitudHipocentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Magnitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEventos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +64,55 @@
             this.dataGridEventos.Size = new System.Drawing.Size(663, 150);
             this.dataGridEventos.TabIndex = 0;
             this.dataGridEventos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // FechaOcurrencia
+            // 
+            this.FechaOcurrencia.DataPropertyName = "FechaOcurrencia";
+            this.FechaOcurrencia.HeaderText = "Fecha de Ocurrencia";
+            this.FechaOcurrencia.MinimumWidth = 10;
+            this.FechaOcurrencia.Name = "FechaOcurrencia";
+            this.FechaOcurrencia.ReadOnly = true;
+            // 
+            // LatitudEpicentro
+            // 
+            this.LatitudEpicentro.DataPropertyName = "LatitudEpicentro";
+            this.LatitudEpicentro.HeaderText = "Latitud Epicentro";
+            this.LatitudEpicentro.MinimumWidth = 10;
+            this.LatitudEpicentro.Name = "LatitudEpicentro";
+            this.LatitudEpicentro.ReadOnly = true;
+            // 
+            // LongitudEpicentro
+            // 
+            this.LongitudEpicentro.DataPropertyName = "LongitudEpicentro";
+            this.LongitudEpicentro.HeaderText = "Longitud Epicentro";
+            this.LongitudEpicentro.MinimumWidth = 10;
+            this.LongitudEpicentro.Name = "LongitudEpicentro";
+            this.LongitudEpicentro.ReadOnly = true;
+            // 
+            // LatitudHipocentro
+            // 
+            this.LatitudHipocentro.DataPropertyName = "LatitudHipocentro";
+            this.LatitudHipocentro.HeaderText = "Latitud Hipocentro";
+            this.LatitudHipocentro.MinimumWidth = 10;
+            this.LatitudHipocentro.Name = "LatitudHipocentro";
+            this.LatitudHipocentro.ReadOnly = true;
+            // 
+            // LongitudHipocentro
+            // 
+            this.LongitudHipocentro.DataPropertyName = "LongitudHipocentro";
+            this.LongitudHipocentro.HeaderText = "Longitud Hipocentro";
+            this.LongitudHipocentro.MinimumWidth = 10;
+            this.LongitudHipocentro.Name = "LongitudHipocentro";
+            this.LongitudHipocentro.ReadOnly = true;
+            // 
+            // Magnitud
+            // 
+            this.Magnitud.DataPropertyName = "ValorMagnitud";
+            this.Magnitud.HeaderText = "Magnitud";
+            this.Magnitud.MinimumWidth = 10;
+            this.Magnitud.Name = "Magnitud";
+            this.Magnitud.ReadOnly = true;
+            this.Magnitud.Width = 79;
             // 
             // lblClickEvento
             // 
@@ -139,55 +188,6 @@
             this.treeAgrupados.Size = new System.Drawing.Size(665, 306);
             this.treeAgrupados.TabIndex = 6;
             this.treeAgrupados.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeAgrupados_AfterSelect);
-            // 
-            // FechaOcurrencia
-            // 
-            this.FechaOcurrencia.DataPropertyName = "FechaOcurrencia";
-            this.FechaOcurrencia.HeaderText = "Fecha de Ocurrencia";
-            this.FechaOcurrencia.MinimumWidth = 10;
-            this.FechaOcurrencia.Name = "FechaOcurrencia";
-            this.FechaOcurrencia.ReadOnly = true;
-            // 
-            // LatitudEpicentro
-            // 
-            this.LatitudEpicentro.DataPropertyName = "LatitudEpicentro";
-            this.LatitudEpicentro.HeaderText = "Latitud Epicentro";
-            this.LatitudEpicentro.MinimumWidth = 10;
-            this.LatitudEpicentro.Name = "LatitudEpicentro";
-            this.LatitudEpicentro.ReadOnly = true;
-            // 
-            // LongitudEpicentro
-            // 
-            this.LongitudEpicentro.DataPropertyName = "LongitudEpicentro";
-            this.LongitudEpicentro.HeaderText = "Longitud Epicentro";
-            this.LongitudEpicentro.MinimumWidth = 10;
-            this.LongitudEpicentro.Name = "LongitudEpicentro";
-            this.LongitudEpicentro.ReadOnly = true;
-            // 
-            // LatitudHipocentro
-            // 
-            this.LatitudHipocentro.DataPropertyName = "LatitudHipocentro";
-            this.LatitudHipocentro.HeaderText = "Latitud Hipocentro";
-            this.LatitudHipocentro.MinimumWidth = 10;
-            this.LatitudHipocentro.Name = "LatitudHipocentro";
-            this.LatitudHipocentro.ReadOnly = true;
-            // 
-            // LongitudHipocentro
-            // 
-            this.LongitudHipocentro.DataPropertyName = "LongitudHipocentro";
-            this.LongitudHipocentro.HeaderText = "Longitud Hipocentro";
-            this.LongitudHipocentro.MinimumWidth = 10;
-            this.LongitudHipocentro.Name = "LongitudHipocentro";
-            this.LongitudHipocentro.ReadOnly = true;
-            // 
-            // Magnitud
-            // 
-            this.Magnitud.DataPropertyName = "ValorMagnitud";
-            this.Magnitud.HeaderText = "Magnitud";
-            this.Magnitud.MinimumWidth = 10;
-            this.Magnitud.Name = "Magnitud";
-            this.Magnitud.ReadOnly = true;
-            this.Magnitud.Width = 79;
             // 
             // PantResultadoRevisionManual
             // 

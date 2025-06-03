@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login1));
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnIniciarSesion = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtNombreUsuario
@@ -43,23 +43,25 @@
             this.txtNombreUsuario.Size = new System.Drawing.Size(235, 13);
             this.txtNombreUsuario.TabIndex = 0;
             // 
-            // txtContraseña
-            // 
-            this.txtContraseña.Location = new System.Drawing.Point(205, 339);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(190, 20);
-            this.txtContraseña.TabIndex = 3;
-            this.txtContraseña.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // btnIniciarSesion
             // 
-            this.btnIniciarSesion.Location = new System.Drawing.Point(191, 447);
+            this.btnIniciarSesion.BackColor = System.Drawing.Color.LightBlue;
+            this.btnIniciarSesion.Location = new System.Drawing.Point(153, 447);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.Size = new System.Drawing.Size(233, 45);
+            this.btnIniciarSesion.Size = new System.Drawing.Size(304, 47);
             this.btnIniciarSesion.TabIndex = 4;
-            this.btnIniciarSesion.Text = "button1";
-            this.btnIniciarSesion.UseVisualStyleBackColor = true;
+            this.btnIniciarSesion.Text = "Iniciar Sesion";
+            this.btnIniciarSesion.UseVisualStyleBackColor = false;
             this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click_1);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.BackColor = System.Drawing.Color.LightCyan;
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Location = new System.Drawing.Point(205, 343);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(198, 13);
+            this.txtPassword.TabIndex = 5;
             // 
             // Login1
             // 
@@ -67,8 +69,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(614, 581);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btnIniciarSesion);
-            this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtNombreUsuario);
             this.Name = "Login1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -82,8 +84,8 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtNombreUsuario;
-        private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Button btnIniciarSesion;
+        private System.Windows.Forms.TextBox txtPassword;
     }
 }
 

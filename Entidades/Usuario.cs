@@ -8,33 +8,18 @@ namespace PPAI2025.Entidades
 {
     public class Usuario
     {
-        private string usuario;
-        private string clave;
-        private bool habilitado;
+        public int IdUsuario { get; set; }
+        public string NombreUsuario { get; set; }
 
-        public string NombreDeUsuario { get => this.usuario; set => this.usuario = value; }
-        public string Password { get => clave; set => clave = value; }
-        public bool Habilitar { get => habilitado; set => habilitado = true; }
-
-        public Usuario(string nombreUsuario, string password, bool habilitado)
+        public Usuario(int idUsuario, string nombreUsuario)
         {
-            this.usuario = nombreUsuario;
-            this.clave = password;
-            this.habilitado = habilitado;
+            IdUsuario = idUsuario;
+            NombreUsuario = nombreUsuario;
         }
 
-        public bool getASLogueado(string nombreUsuario)
+        public string getASLogueado()
         {
-            usuario = "admin";
-            clave = "admin";
-            if (nombreUsuario.Equals(usuario))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return $"ID: {IdUsuario}, Nombre: {NombreUsuario}";
         }
     }
 }

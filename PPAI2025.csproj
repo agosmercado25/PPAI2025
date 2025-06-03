@@ -91,6 +91,7 @@
     <Compile Include="AccesoDatos\AD_EstacionSismologica.cs" />
     <Compile Include="AccesoDatos\AD_Sismografo.cs" />
     <Compile Include="AccesoDatos\AD_TipoDato.cs" />
+    <Compile Include="AccesoDatos\AppSession.cs" />
     <Compile Include="Controlador\GestorResultadoRevisionManual.cs" />
     <Compile Include="dtos\GrupoEstacionDTO.cs" />
     <Compile Include="Entidades\AlcanceSismo.cs" />

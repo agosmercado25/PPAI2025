@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPAI2025.AccesoDatos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace PPAI2025
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            AppSession.InicializarSesionAdmin();
             Application.Run(new Login1());
         }
     }

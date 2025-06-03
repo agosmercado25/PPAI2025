@@ -8,32 +8,38 @@ namespace PPAI2025.Entidades
 {
     public class Sesion
     {
-        private DateTime fechaHoraFin;
-        private DateTime fechaHoraInicio;
-        private Usuario usuarioSeleccionado;
+        public Usuario UsuarioActual { get; private set; }
 
-        public DateTime FechaHoraInicio { get => fechaHoraInicio; set => fechaHoraInicio = value; }
-        public DateTime FechaHoraFin { get => this.fechaHoraFin; set => this.fechaHoraFin = value; }
-        public Usuario UsuarioSeleccionado { get => this.usuarioSeleccionado; set => this.usuarioSeleccionado = value; }
-
-        public Sesion(DateTime fechaHoraFin, DateTime fechaHoraInicio, Usuario usuarioSeleccionado)
+        public Sesion()
         {
-            this.fechaHoraFin = fechaHoraFin;
-            this.fechaHoraInicio = fechaHoraInicio;
-            this.usuarioSeleccionado = usuarioSeleccionado;
+            UsuarioActual = null; 
         }
 
-        public Usuario conocerSesion(string nombreUsuario, string contraseña)
+        public bool EstablecerUsuario(Usuario usuario) 
         {
-            Usuario logueado = new Usuario(nombreUsuario, contraseña, true);
-            this.usuarioSeleccionado = logueado;
-            bool usu = logueado.getASLogueado(nombreUsuario);
-            if (usu)
+            if (usuario != null)
             {
-                return logueado;
+                UsuarioActual = usuario;
+                Console.WriteLine($"[Sesion] Usuario '{usuario.NombreUsuario}' establecido en esta sesión.");
+                return true;
             }
             else
             {
+                Console.WriteLine("[Sesion] Intento de establecer un usuario nulo en la sesión.");
+                return false;
+            }
+        }
+
+        public Usuario conocerUsuario() 
+        {
+            if (UsuarioActual != null)
+            {
+                Console.WriteLine($"[Sesion] La sesión actual pertenece a: {UsuarioActual.getASLogueado()}");
+                return UsuarioActual;
+            }
+            else
+            {
+                Console.WriteLine("[Sesion] No hay ningún usuario activo en esta sesión.");
                 return null;
             }
         }

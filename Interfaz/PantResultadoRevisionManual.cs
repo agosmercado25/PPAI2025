@@ -49,27 +49,19 @@ namespace PPAI2025.Interfaz
         {
             dataGridEventos.DataSource = null;
 
-            var eventosParaGrid = eventos.Select(e => new
-            {
-                Id = e.Id,
-                FechaOcurrencia = e.FechaOcurrencia.ToString("dd/MM/yyyy HH:mm:ss"),
-                LatitudEpicentro = e.LatitudEpicentro,
-                LatitudHipocentro = e.LatitudHipocentro,
-                LongitudEpicentro = e.LongitudEpicentro,
-                LongitudHipocentro = e.LongitudHipocentro,
-                ValorNumericoMagnitud = e.Magnitud?.Numero.ToString("F2") ?? "N/A"
-            }).ToList();
+            dataGridEventos.DataSource = eventos;
 
-            dataGridEventos.DataSource = eventosParaGrid;
             dataGridEventos.Columns["FechaOcurrencia"].HeaderText = "Fecha de Ocurrencia";
             dataGridEventos.Columns["LatitudEpicentro"].HeaderText = "Latitud Epicentro";
             dataGridEventos.Columns["LatitudHipocentro"].HeaderText = "Latitud Hipocentro";
             dataGridEventos.Columns["LongitudEpicentro"].HeaderText = "Longitud Epicentro";
             dataGridEventos.Columns["LongitudHipocentro"].HeaderText = "Longitud Hipocentro";
-            dataGridEventos.Columns["ValorNumericoMagnitud"].HeaderText = "Valor Magnitud";
 
             dataGridEventos.Columns["Id"].Visible = false;
             dataGridEventos.Columns["Magnitud"].Visible = false;
+            dataGridEventos.Columns["Alcance"].Visible = false;
+            dataGridEventos.Columns["Clasificacion"].Visible = false;
+            dataGridEventos.Columns["Origen"].Visible = false;
 
             dataGridEventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridEventos.MultiSelect = false;
@@ -92,13 +84,14 @@ namespace PPAI2025.Interfaz
             {
                 gestor.tomarSeleccionEventoIngresado(eventoSeleccionado);
             }
-            
+
             btnSismograma.Enabled = true;
-            return;
+
         }
 
         public void solicitarOpcionVisualizarMapa()
         {
+
             //btnVisualizarMapa.Enabled = true;
         }
 
@@ -127,9 +120,6 @@ namespace PPAI2025.Interfaz
             btnRevisionExperto.Enabled = true;
         }
 
-
-
-
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             gestor.tomarSeleccionAccionConfirmar();
@@ -153,7 +143,6 @@ namespace PPAI2025.Interfaz
 
         public void CargarDatosEnTreeView(dynamic gruposPorEstacion, string alcance, string clasificacion, string origen)
         {
-            
             if (treeAgrupados == null)
             {
                 treeAgrupados = new System.Windows.Forms.TreeView();
@@ -210,8 +199,6 @@ namespace PPAI2025.Interfaz
                 treeAgrupados.Nodes.Add(estacionNode);
             }
 
-
-            // Expande todos los nodos para mostrar la jerarquía completa
             treeAgrupados.ExpandAll();
             
             treeAgrupados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
