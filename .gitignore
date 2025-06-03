@@ -4,3 +4,6 @@
 *.suo
 *.vspscc
 *.vssscc
+
+# Archivo de configuracion de BD
+App.config
