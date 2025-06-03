@@ -42,6 +42,7 @@
             this.btnVisualizarMapa = new System.Windows.Forms.Button();
             this.btnSismograma = new System.Windows.Forms.Button();
             this.treeAgrupados = new System.Windows.Forms.TreeView();
+            this.lblEventos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEventos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,14 +57,14 @@
             this.LatitudHipocentro,
             this.LongitudHipocentro,
             this.Magnitud});
-            this.dataGridEventos.Location = new System.Drawing.Point(8, 8);
+            this.dataGridEventos.Location = new System.Drawing.Point(7, 33);
             this.dataGridEventos.Name = "dataGridEventos";
             this.dataGridEventos.ReadOnly = true;
             this.dataGridEventos.RowHeadersWidth = 82;
             this.dataGridEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridEventos.Size = new System.Drawing.Size(663, 150);
             this.dataGridEventos.TabIndex = 0;
-            this.dataGridEventos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridEventos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tomarSeleccionEvento_CellContentClick);
             // 
             // FechaOcurrencia
             // 
@@ -124,7 +125,7 @@
             // btnConfirmar
             // 
             this.btnConfirmar.Enabled = false;
-            this.btnConfirmar.Location = new System.Drawing.Point(675, 13);
+            this.btnConfirmar.Location = new System.Drawing.Point(675, 33);
             this.btnConfirmar.Margin = new System.Windows.Forms.Padding(2);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(110, 44);
@@ -136,7 +137,7 @@
             // btnRechazar
             // 
             this.btnRechazar.Enabled = false;
-            this.btnRechazar.Location = new System.Drawing.Point(675, 65);
+            this.btnRechazar.Location = new System.Drawing.Point(675, 81);
             this.btnRechazar.Margin = new System.Windows.Forms.Padding(2);
             this.btnRechazar.Name = "btnRechazar";
             this.btnRechazar.Size = new System.Drawing.Size(110, 44);
@@ -148,7 +149,7 @@
             // btnRevisionExperto
             // 
             this.btnRevisionExperto.Enabled = false;
-            this.btnRevisionExperto.Location = new System.Drawing.Point(675, 114);
+            this.btnRevisionExperto.Location = new System.Drawing.Point(675, 129);
             this.btnRevisionExperto.Margin = new System.Windows.Forms.Padding(2);
             this.btnRevisionExperto.Name = "btnRevisionExperto";
             this.btnRevisionExperto.Size = new System.Drawing.Size(110, 44);
@@ -160,7 +161,7 @@
             // btnVisualizarMapa
             // 
             this.btnVisualizarMapa.Enabled = false;
-            this.btnVisualizarMapa.Location = new System.Drawing.Point(788, 13);
+            this.btnVisualizarMapa.Location = new System.Drawing.Point(789, 58);
             this.btnVisualizarMapa.Margin = new System.Windows.Forms.Padding(2);
             this.btnVisualizarMapa.Name = "btnVisualizarMapa";
             this.btnVisualizarMapa.Size = new System.Drawing.Size(103, 44);
@@ -172,7 +173,7 @@
             // btnSismograma
             // 
             this.btnSismograma.Enabled = false;
-            this.btnSismograma.Location = new System.Drawing.Point(788, 65);
+            this.btnSismograma.Location = new System.Drawing.Point(789, 106);
             this.btnSismograma.Margin = new System.Windows.Forms.Padding(2);
             this.btnSismograma.Name = "btnSismograma";
             this.btnSismograma.Size = new System.Drawing.Size(103, 44);
@@ -190,11 +191,22 @@
             this.treeAgrupados.TabIndex = 6;
             this.treeAgrupados.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeAgrupados_AfterSelect);
             // 
+            // lblEventos
+            // 
+            this.lblEventos.AutoSize = true;
+            this.lblEventos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEventos.Location = new System.Drawing.Point(12, 9);
+            this.lblEventos.Name = "lblEventos";
+            this.lblEventos.Size = new System.Drawing.Size(273, 16);
+            this.lblEventos.TabIndex = 7;
+            this.lblEventos.Text = "Seleccione un Evento a bloquear de la grilla:";
+            // 
             // PantResultadoRevisionManual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 181);
+            this.ClientSize = new System.Drawing.Size(899, 195);
+            this.Controls.Add(this.lblEventos);
             this.Controls.Add(this.treeAgrupados);
             this.Controls.Add(this.btnSismograma);
             this.Controls.Add(this.btnVisualizarMapa);
@@ -207,6 +219,7 @@
             this.Load += new System.EventHandler(this.Principal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEventos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -226,5 +239,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LatitudHipocentro;
         private System.Windows.Forms.DataGridViewTextBoxColumn LongitudHipocentro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Magnitud;
+        private System.Windows.Forms.Label lblEventos;
     }
 }

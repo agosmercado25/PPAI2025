@@ -5,7 +5,6 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PPAI2025.dtos;
 
 
 namespace PPAI2025.Entidades
@@ -131,8 +130,8 @@ namespace PPAI2025.Entidades
 
             return (nombreAlcance, nombreClasificacion, nombreOrigen);
         }
-        
-        public object buscarSeriesTemporales()
+
+        public object buscarYClasificarSeriesTemporales()
         {
             var gruposPorEstacion = this.SerieTemporal
             .Where(s => s.buscarEstacionSismologica() != null)
@@ -151,7 +150,7 @@ namespace PPAI2025.Entidades
 
             string jsonOutput = JsonSerializer.Serialize(gruposPorEstacion, options);
 
-            
+
             return gruposPorEstacion;
         }
     }

@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PPAI2025.Controlador;
 using PPAI2025.Entidades;
-using PPAI2025.dtos;
 
 namespace PPAI2025.Interfaz
 {
@@ -35,6 +34,11 @@ namespace PPAI2025.Interfaz
             
         }
 
+        public void regResultRevisionManual()
+        {
+            habilitarPantalla();
+        }
+
         public void habilitarPantalla()
         {
             gestor = new GestorResultadoRevisionManual(this);
@@ -42,7 +46,12 @@ namespace PPAI2025.Interfaz
             listaEventos = gestor.opResultadoRevisionManual();
             ventana.mostrarDatosEventos(listaEventos);
             ventana.Show();
+            solicitarSeleccionEvento();
+        }
 
+        public void solicitarSeleccionEvento()
+        {
+            MessageBox.Show("Seleccione un Evento de la grilla");
         }
 
         public void mostrarDatosEventos(List<EventoSismico> eventos)
@@ -70,7 +79,7 @@ namespace PPAI2025.Interfaz
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void tomarSeleccionEvento_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
             if(e.RowIndex < 0) return;
@@ -104,9 +113,11 @@ namespace PPAI2025.Interfaz
 
         public void solicitarModificacionDatos()
         {
-            //DialogResult dialogResult = MessageBox.Show("Desea modificar datos?", "Modificar datos", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Desea modificar datos?", "Modificar datos", MessageBoxButtons.YesNo);
             tomarIngresoModificacionDatos();
+
         }
+
 
         public void tomarIngresoModificacionDatos()
         {

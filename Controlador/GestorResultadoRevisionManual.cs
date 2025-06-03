@@ -1,5 +1,4 @@
 ﻿using PPAI2025.AccesoDatos;
-using PPAI2025.dtos;
 using PPAI2025.Entidades;
 using PPAI2025.Interfaz;
 using System;
@@ -25,7 +24,6 @@ namespace PPAI2025.Controlador
         private Estado esRevisionExperto;
         private DateTime fechaHoraActual;
         private dynamic seriesTemporales;
-        private SerieTemporal serieTemporalSelec;
         private Usuario sesionActual;
         private List<Estado> estados;
         private Estado estadoEnRevision;
@@ -199,7 +197,7 @@ namespace PPAI2025.Controlador
         {
             (string alcance, string clasificacion, string origen) = eventoSeleccionado.buscarDatosSismo();
             //this.seriesTemporales = eventoSeleccionado.buscarSeriesTemporales();
-            this.seriesTemporales = eventoSeleccionado.buscarSeriesTemporales();
+            this.seriesTemporales = eventoSeleccionado.buscarYClasificarSeriesTemporales();
             this.pantalla.CargarDatosEnTreeView(this.seriesTemporales, alcance, clasificacion, origen);
             llamarCUGenerarSismograma();
             habilitarOpcionVisualizarMapa();

@@ -93,7 +93,6 @@
     <Compile Include="AccesoDatos\AD_TipoDato.cs" />
     <Compile Include="AccesoDatos\AppSession.cs" />
     <Compile Include="Controlador\GestorResultadoRevisionManual.cs" />
-    <Compile Include="dtos\GrupoEstacionDTO.cs" />
     <Compile Include="Entidades\AlcanceSismo.cs" />
     <Compile Include="Entidades\CambioEstado.cs" />
     <Compile Include="Entidades\ClasificacionSismo.cs" />

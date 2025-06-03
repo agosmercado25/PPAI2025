@@ -39,7 +39,7 @@ namespace PPAI2025
         {
             PantResultadoRevisionManual menuPrincipal = new PantResultadoRevisionManual();
             this.Hide();
-            menuPrincipal.habilitarPantalla();
+            menuPrincipal.regResultRevisionManual();
             
 
             //if (se != null)
