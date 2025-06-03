@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridEventos = new System.Windows.Forms.DataGridView();
-            this.FechaOcurrencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LatitudEpicentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LongitudEpicentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LatitudHipocentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LongitudHipocentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Magnitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblClickEvento = new System.Windows.Forms.Label();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnRechazar = new System.Windows.Forms.Button();
@@ -42,6 +36,12 @@
             this.btnVisualizarMapa = new System.Windows.Forms.Button();
             this.btnSismograma = new System.Windows.Forms.Button();
             this.treeAgrupados = new System.Windows.Forms.TreeView();
+            this.FechaOcurrencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LatitudEpicentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LongitudEpicentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LatitudHipocentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LongitudHipocentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Magnitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEventos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,69 +56,14 @@
             this.LatitudHipocentro,
             this.LongitudHipocentro,
             this.Magnitud});
-            this.dataGridEventos.Location = new System.Drawing.Point(15, 15);
-            this.dataGridEventos.Margin = new System.Windows.Forms.Padding(6);
+            this.dataGridEventos.Location = new System.Drawing.Point(8, 8);
             this.dataGridEventos.Name = "dataGridEventos";
             this.dataGridEventos.ReadOnly = true;
             this.dataGridEventos.RowHeadersWidth = 82;
             this.dataGridEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridEventos.Size = new System.Drawing.Size(1326, 288);
+            this.dataGridEventos.Size = new System.Drawing.Size(663, 150);
             this.dataGridEventos.TabIndex = 0;
             this.dataGridEventos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // FechaOcurrencia
-            // 
-            this.FechaOcurrencia.DataPropertyName = "FechaOcurrencia";
-            this.FechaOcurrencia.HeaderText = "Fecha de Ocurrencia";
-            this.FechaOcurrencia.MinimumWidth = 10;
-            this.FechaOcurrencia.Name = "FechaOcurrencia";
-            this.FechaOcurrencia.ReadOnly = true;
-            this.FechaOcurrencia.Width = 200;
-            // 
-            // LatitudEpicentro
-            // 
-            this.LatitudEpicentro.DataPropertyName = "LatitudEpicentro";
-            this.LatitudEpicentro.HeaderText = "Latitud Epicentro";
-            this.LatitudEpicentro.MinimumWidth = 10;
-            this.LatitudEpicentro.Name = "LatitudEpicentro";
-            this.LatitudEpicentro.ReadOnly = true;
-            this.LatitudEpicentro.Width = 200;
-            // 
-            // LongitudEpicentro
-            // 
-            this.LongitudEpicentro.DataPropertyName = "LongitudEpicentro";
-            this.LongitudEpicentro.HeaderText = "Longitud Epicentro";
-            this.LongitudEpicentro.MinimumWidth = 10;
-            this.LongitudEpicentro.Name = "LongitudEpicentro";
-            this.LongitudEpicentro.ReadOnly = true;
-            this.LongitudEpicentro.Width = 200;
-            // 
-            // LatitudHipocentro
-            // 
-            this.LatitudHipocentro.DataPropertyName = "LatitudHipocentro";
-            this.LatitudHipocentro.HeaderText = "Latitud Hipocentro";
-            this.LatitudHipocentro.MinimumWidth = 10;
-            this.LatitudHipocentro.Name = "LatitudHipocentro";
-            this.LatitudHipocentro.ReadOnly = true;
-            this.LatitudHipocentro.Width = 200;
-            // 
-            // LongitudHipocentro
-            // 
-            this.LongitudHipocentro.DataPropertyName = "LongitudHipocentro";
-            this.LongitudHipocentro.HeaderText = "Longitud Hipocentro";
-            this.LongitudHipocentro.MinimumWidth = 10;
-            this.LongitudHipocentro.Name = "LongitudHipocentro";
-            this.LongitudHipocentro.ReadOnly = true;
-            this.LongitudHipocentro.Width = 200;
-            // 
-            // Magnitud
-            // 
-            this.Magnitud.DataPropertyName = "ValorMagnitud";
-            this.Magnitud.HeaderText = "Magnitud";
-            this.Magnitud.MinimumWidth = 10;
-            this.Magnitud.Name = "Magnitud";
-            this.Magnitud.ReadOnly = true;
-            this.Magnitud.Width = 200;
             // 
             // lblClickEvento
             // 
@@ -130,9 +75,10 @@
             // btnConfirmar
             // 
             this.btnConfirmar.Enabled = false;
-            this.btnConfirmar.Location = new System.Drawing.Point(1350, 15);
+            this.btnConfirmar.Location = new System.Drawing.Point(675, 8);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(2);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(219, 85);
+            this.btnConfirmar.Size = new System.Drawing.Size(110, 44);
             this.btnConfirmar.TabIndex = 1;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
@@ -141,9 +87,10 @@
             // btnRechazar
             // 
             this.btnRechazar.Enabled = false;
-            this.btnRechazar.Location = new System.Drawing.Point(1350, 117);
+            this.btnRechazar.Location = new System.Drawing.Point(675, 61);
+            this.btnRechazar.Margin = new System.Windows.Forms.Padding(2);
             this.btnRechazar.Name = "btnRechazar";
-            this.btnRechazar.Size = new System.Drawing.Size(219, 85);
+            this.btnRechazar.Size = new System.Drawing.Size(110, 44);
             this.btnRechazar.TabIndex = 2;
             this.btnRechazar.Text = "Rechazar";
             this.btnRechazar.UseVisualStyleBackColor = true;
@@ -152,9 +99,10 @@
             // btnRevisionExperto
             // 
             this.btnRevisionExperto.Enabled = false;
-            this.btnRevisionExperto.Location = new System.Drawing.Point(1350, 218);
+            this.btnRevisionExperto.Location = new System.Drawing.Point(675, 113);
+            this.btnRevisionExperto.Margin = new System.Windows.Forms.Padding(2);
             this.btnRevisionExperto.Name = "btnRevisionExperto";
-            this.btnRevisionExperto.Size = new System.Drawing.Size(219, 85);
+            this.btnRevisionExperto.Size = new System.Drawing.Size(110, 44);
             this.btnRevisionExperto.TabIndex = 3;
             this.btnRevisionExperto.Text = "Solicitar Revision Experto";
             this.btnRevisionExperto.UseVisualStyleBackColor = true;
@@ -163,9 +111,10 @@
             // btnVisualizarMapa
             // 
             this.btnVisualizarMapa.Enabled = false;
-            this.btnVisualizarMapa.Location = new System.Drawing.Point(1575, 15);
+            this.btnVisualizarMapa.Location = new System.Drawing.Point(788, 8);
+            this.btnVisualizarMapa.Margin = new System.Windows.Forms.Padding(2);
             this.btnVisualizarMapa.Name = "btnVisualizarMapa";
-            this.btnVisualizarMapa.Size = new System.Drawing.Size(206, 66);
+            this.btnVisualizarMapa.Size = new System.Drawing.Size(103, 44);
             this.btnVisualizarMapa.TabIndex = 4;
             this.btnVisualizarMapa.Text = "Visualizar Mapa";
             this.btnVisualizarMapa.UseVisualStyleBackColor = true;
@@ -174,26 +123,77 @@
             // btnSismograma
             // 
             this.btnSismograma.Enabled = false;
-            this.btnSismograma.Location = new System.Drawing.Point(1608, 117);
+            this.btnSismograma.Location = new System.Drawing.Point(788, 61);
+            this.btnSismograma.Margin = new System.Windows.Forms.Padding(2);
             this.btnSismograma.Name = "btnSismograma";
-            this.btnSismograma.Size = new System.Drawing.Size(153, 64);
+            this.btnSismograma.Size = new System.Drawing.Size(103, 44);
             this.btnSismograma.TabIndex = 5;
             this.btnSismograma.Text = "Generar Sismograma";
             this.btnSismograma.UseVisualStyleBackColor = true;
             // 
             // treeAgrupados
             // 
-            this.treeAgrupados.Enabled = false;
-            this.treeAgrupados.Location = new System.Drawing.Point(15, 391);
+            this.treeAgrupados.Location = new System.Drawing.Point(8, 203);
+            this.treeAgrupados.Margin = new System.Windows.Forms.Padding(2);
             this.treeAgrupados.Name = "treeAgrupados";
-            this.treeAgrupados.Size = new System.Drawing.Size(1326, 585);
+            this.treeAgrupados.Size = new System.Drawing.Size(665, 306);
             this.treeAgrupados.TabIndex = 6;
+            this.treeAgrupados.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeAgrupados_AfterSelect);
+            // 
+            // FechaOcurrencia
+            // 
+            this.FechaOcurrencia.DataPropertyName = "FechaOcurrencia";
+            this.FechaOcurrencia.HeaderText = "Fecha de Ocurrencia";
+            this.FechaOcurrencia.MinimumWidth = 10;
+            this.FechaOcurrencia.Name = "FechaOcurrencia";
+            this.FechaOcurrencia.ReadOnly = true;
+            // 
+            // LatitudEpicentro
+            // 
+            this.LatitudEpicentro.DataPropertyName = "LatitudEpicentro";
+            this.LatitudEpicentro.HeaderText = "Latitud Epicentro";
+            this.LatitudEpicentro.MinimumWidth = 10;
+            this.LatitudEpicentro.Name = "LatitudEpicentro";
+            this.LatitudEpicentro.ReadOnly = true;
+            // 
+            // LongitudEpicentro
+            // 
+            this.LongitudEpicentro.DataPropertyName = "LongitudEpicentro";
+            this.LongitudEpicentro.HeaderText = "Longitud Epicentro";
+            this.LongitudEpicentro.MinimumWidth = 10;
+            this.LongitudEpicentro.Name = "LongitudEpicentro";
+            this.LongitudEpicentro.ReadOnly = true;
+            // 
+            // LatitudHipocentro
+            // 
+            this.LatitudHipocentro.DataPropertyName = "LatitudHipocentro";
+            this.LatitudHipocentro.HeaderText = "Latitud Hipocentro";
+            this.LatitudHipocentro.MinimumWidth = 10;
+            this.LatitudHipocentro.Name = "LatitudHipocentro";
+            this.LatitudHipocentro.ReadOnly = true;
+            // 
+            // LongitudHipocentro
+            // 
+            this.LongitudHipocentro.DataPropertyName = "LongitudHipocentro";
+            this.LongitudHipocentro.HeaderText = "Longitud Hipocentro";
+            this.LongitudHipocentro.MinimumWidth = 10;
+            this.LongitudHipocentro.Name = "LongitudHipocentro";
+            this.LongitudHipocentro.ReadOnly = true;
+            // 
+            // Magnitud
+            // 
+            this.Magnitud.DataPropertyName = "ValorMagnitud";
+            this.Magnitud.HeaderText = "Magnitud";
+            this.Magnitud.MinimumWidth = 10;
+            this.Magnitud.Name = "Magnitud";
+            this.Magnitud.ReadOnly = true;
+            this.Magnitud.Width = 79;
             // 
             // PantResultadoRevisionManual
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2025, 1132);
+            this.ClientSize = new System.Drawing.Size(899, 181);
             this.Controls.Add(this.treeAgrupados);
             this.Controls.Add(this.btnSismograma);
             this.Controls.Add(this.btnVisualizarMapa);
@@ -201,7 +201,6 @@
             this.Controls.Add(this.btnRechazar);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.dataGridEventos);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "PantResultadoRevisionManual";
             this.Text = "ResultadoRevisionManual";
             this.Load += new System.EventHandler(this.Principal_Load);
@@ -213,12 +212,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridEventos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaOcurrencia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LatitudEpicentro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LongitudEpicentro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LatitudHipocentro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LongitudHipocentro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Magnitud;
         private System.Windows.Forms.Label lblClickEvento;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Button btnRechazar;
@@ -226,5 +219,11 @@
         private System.Windows.Forms.Button btnVisualizarMapa;
         private System.Windows.Forms.Button btnSismograma;
         private System.Windows.Forms.TreeView treeAgrupados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaOcurrencia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LatitudEpicentro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LongitudEpicentro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LatitudHipocentro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LongitudHipocentro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Magnitud;
     }
 }

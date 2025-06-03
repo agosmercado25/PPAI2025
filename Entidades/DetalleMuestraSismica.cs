@@ -34,7 +34,8 @@ namespace PPAI2025.Entidades
             {
                 id = this.Id,
                 valor = this.Valor,
-                tipoDato = this.TipoDato?.Denominacion
+                tipoDato = this.TipoDato?.getDenominacion(),
+                unidadMedida = this.TipoDato?.getUnidadMedida()
             };
         }
     }

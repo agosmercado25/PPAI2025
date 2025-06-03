@@ -24,6 +24,7 @@ namespace PPAI2025.Interfaz
         {
             InitializeComponent();
             this.gestor = gestor;
+
         }
         public PantResultadoRevisionManual()
         {
@@ -47,20 +48,28 @@ namespace PPAI2025.Interfaz
         public void mostrarDatosEventos(List<EventoSismico> eventos)
         {
             dataGridEventos.DataSource = null;
-            
-            dataGridEventos.DataSource = eventos;
-            
+
+            var eventosParaGrid = eventos.Select(e => new
+            {
+                Id = e.Id,
+                FechaOcurrencia = e.FechaOcurrencia.ToString("dd/MM/yyyy HH:mm:ss"),
+                LatitudEpicentro = e.LatitudEpicentro,
+                LatitudHipocentro = e.LatitudHipocentro,
+                LongitudEpicentro = e.LongitudEpicentro,
+                LongitudHipocentro = e.LongitudHipocentro,
+                ValorNumericoMagnitud = e.Magnitud?.Numero.ToString("F2") ?? "N/A"
+            }).ToList();
+
+            dataGridEventos.DataSource = eventosParaGrid;
             dataGridEventos.Columns["FechaOcurrencia"].HeaderText = "Fecha de Ocurrencia";
             dataGridEventos.Columns["LatitudEpicentro"].HeaderText = "Latitud Epicentro";
             dataGridEventos.Columns["LatitudHipocentro"].HeaderText = "Latitud Hipocentro";
             dataGridEventos.Columns["LongitudEpicentro"].HeaderText = "Longitud Epicentro";
             dataGridEventos.Columns["LongitudHipocentro"].HeaderText = "Longitud Hipocentro";
+            dataGridEventos.Columns["ValorNumericoMagnitud"].HeaderText = "Valor Magnitud";
 
             dataGridEventos.Columns["Id"].Visible = false;
             dataGridEventos.Columns["Magnitud"].Visible = false;
-            dataGridEventos.Columns["Alcance"].Visible = false;
-            dataGridEventos.Columns["Clasificacion"].Visible = false;
-            dataGridEventos.Columns["Origen"].Visible = false;
 
             dataGridEventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridEventos.MultiSelect = false;
@@ -90,7 +99,7 @@ namespace PPAI2025.Interfaz
 
         public void solicitarOpcionVisualizarMapa()
         {
-            btnVisualizarMapa.Enabled = true;
+            //btnVisualizarMapa.Enabled = true;
         }
 
         public void tomarIngresoOpcVisualizarMapa()
@@ -142,56 +151,80 @@ namespace PPAI2025.Interfaz
         }
 
 
-        public void CargarDatosEnTreeView(List<GrupoEstacionDTO> gruposPorEstacion, string alcance, string clasificacion, string origen)
+        public void CargarDatosEnTreeView(dynamic gruposPorEstacion, string alcance, string clasificacion, string origen)
         {
-            treeAgrupados.Enabled = true;
-            // Limpiar el TreeView antes de agregar los datos
+            
+            if (treeAgrupados == null)
+            {
+                treeAgrupados = new System.Windows.Forms.TreeView();
+                treeAgrupados.Location = new System.Drawing.Point(12, 12);
+                treeAgrupados.Size = new System.Drawing.Size(400, 300);
+                this.Controls.Add(treeAgrupados);
+            }
+            
+            
             treeAgrupados.Nodes.Clear();
 
-            var datosSismoNode = new System.Windows.Forms.TreeNode($"Datos Sismo: \n "+$"Alcance: {alcance} \n "+$"Clasificacion: {clasificacion} \n "+$"Origen: {origen} " );
+            var datosSismoNode = new System.Windows.Forms.TreeNode($"Datos Sismo:");
             treeAgrupados.Nodes.Add(datosSismoNode);
+            datosSismoNode.Nodes.Add($"Alcance: {alcance}");
+            datosSismoNode.Nodes.Add($"Clasificación: {clasificacion}");
+            datosSismoNode.Nodes.Add($"Origen: {origen}");
+
+            datosSismoNode.Expand();
+
             foreach (var grupoEstacion in gruposPorEstacion)
             {
-                // Crear un nodo para la estación sísmica
-                var estacionNode = new System.Windows.Forms.TreeNode(grupoEstacion.NombreEstacion);
+                var estacionNode = new System.Windows.Forms.TreeNode(grupoEstacion.nombreEstacion);
 
-
-                foreach (var serie in grupoEstacion.SeriesDeEstaEstacion)
+                foreach (var serie in grupoEstacion.seriesDeEstaEstacion)
                 {
-                    // Crear un nodo para la serie
-                    var serieNode = new System.Windows.Forms.TreeNode($"Serie: {serie.CondicionAlarma} - {serie.FechaHoraRegistro.ToShortDateString()} - {serie.FrecuenciaMuestreo} - {serie.FechaHoraInicioRegistroMuestras.ToShortDateString()}");
-
-
-                    foreach (var muestra in serie.Muestras)
+                    if (grupoEstacion.seriesDeEstaEstacion != null)
                     {
-                        // Crear un nodo para la muestra
-                        var muestraNode = new System.Windows.Forms.TreeNode($"Muestra: {muestra.FechaHoraMuestra.ToShortTimeString()}");
+                        var serieNode = new System.Windows.Forms.TreeNode("Serie:");
 
-                        foreach (var detalle in muestra.DetalleMuestraSismica)
+                        serieNode.Nodes.Add($"Fecha/Hora registro: {serie.fechaHoraInicioMuestras}");
+                        serieNode.Nodes.Add($"Frecuencia de muestreo: {serie.frecuenciaMuestras}");
+                        serieNode.Nodes.Add($"Alerta de alarma: {serie.condicionAlarma}");
+
+                        serieNode.Expand();
+
+                        foreach (var muestra in serie.muestras)
                         {
-                            // Crear un nodo para el detalle
-                            var detalleNode = new System.Windows.Forms.TreeNode($"Detalle: Valor = {detalle.Valor} - Tipo de Dato: {detalle.TipoDato}");
-                            muestraNode.Nodes.Add(detalleNode);
+                            
+                            var muestraNode = new System.Windows.Forms.TreeNode($"Fecha/Hora muestra: {muestra.fechaMuestra}");
+                            muestraNode.Expand();
+
+                            foreach (var detalle in muestra.detalles)
+                            {
+                                var detalleNode = new System.Windows.Forms.TreeNode($"{detalle.tipoDato}: {detalle.valor} {detalle.unidadMedida}");
+                                muestraNode.Nodes.Add(detalleNode);
+                            }
+
+                            serieNode.Nodes.Add(muestraNode);
                         }
-
-                        // Agregar el nodo de la muestra a la serie
-                        serieNode.Nodes.Add(muestraNode);
+                        estacionNode.Nodes.Add(serieNode);
                     }
-
-                    // Agregar el nodo de la serie a la estación
-                    estacionNode.Nodes.Add(serieNode);
                 }
 
-                // Agregar el nodo de la estación al TreeView
                 treeAgrupados.Nodes.Add(estacionNode);
             }
-           
+
 
             // Expande todos los nodos para mostrar la jerarquía completa
             treeAgrupados.ExpandAll();
+            
+            treeAgrupados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            treeAgrupados.Size = new System.Drawing.Size(this.ClientSize.Width - 10, this.ClientSize.Height - 10);
+            this.Size = new System.Drawing.Size(550, 800);
+            this.ShowDialog();
+
         }
 
+        private void treeAgrupados_AfterSelect(object sender, TreeViewEventArgs e)
+        {
 
+        }
     }
 
 

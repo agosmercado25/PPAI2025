@@ -185,15 +185,14 @@ namespace PPAI2025.Controlador
             {
                 eventoSeleccionado.actualizarUltimoEstado(listUltimos,fechaHoraActual,estadoAsignar);
             }
-            
         }
 
         private void buscarDatosSismicosEventoSeleccionado(EventoSismico eventoSeleccionado)
         {
             (string alcance, string clasificacion, string origen) = eventoSeleccionado.buscarDatosSismo();
             //this.seriesTemporales = eventoSeleccionado.buscarSeriesTemporales();
-            List<GrupoEstacionDTO> agrupados = eventoSeleccionado.buscarSeriesTemporales();
-            pantalla.CargarDatosEnTreeView(agrupados, alcance, clasificacion, origen);
+            this.seriesTemporales = eventoSeleccionado.buscarSeriesTemporales();
+            this.pantalla.CargarDatosEnTreeView(this.seriesTemporales, alcance, clasificacion, origen);
         }
 
         public Estado buscarEstadoRechazado()
