@@ -31,7 +31,7 @@ namespace PPAI2025.Entidades
         {
         }
 
-        public EstacionSismologica getEstacionSismografica()
+        public EstacionSismologica getEstacionSismologica()
         {
             return this.EstacionSismologica.getNombre();
         }

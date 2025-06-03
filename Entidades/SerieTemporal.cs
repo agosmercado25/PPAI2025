@@ -56,7 +56,7 @@ namespace PPAI2025.Entidades
         }
         public EstacionSismologica buscarEstacionSismologica()
         {
-            return this.Sismografo?.getEstacionSismografica();
+            return this.Sismografo?.getEstacionSismologica();
         }
     }
 }

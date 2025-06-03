@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace PPAI2025.Entidades
 {
@@ -164,27 +166,6 @@ namespace PPAI2025.Entidades
 
 
             return gruposPorEstacion;
-        }
-
-        // Método para mostrar los datos de la serie y sus muestras
-        private void MostrarDatos(SerieTemporal serie, List<MuestraSismicaInfo> muestras)
-        {
-            MessageBox.Show($"Condición de Alarma: {serie.CondicionAlarma}");
-            Console.WriteLine($"Fecha de Registro: {serie.FechaHoraRegistro}");
-            Console.WriteLine($"Fecha de Inicio de Muestras: {serie.FechaHoraInicioRegistroMuestras}");
-            Console.WriteLine($"Frecuencia de Muestras: {serie.FrecuenciaMuestreo}");
-
-            foreach (var muestra in muestras)
-            {
-                Console.WriteLine($"Fecha y Hora de Muestra: {muestra.FechaHoraMuestra}");
-                
-
-                foreach (var detalle in muestra.DetallesMuestraSismica)
-                {
-                    Console.WriteLine($"Valor: {detalle.Valor}");
-                    Console.WriteLine($"Tipo de Dato: {detalle.TipoDeDato}");
-                }
-            }
         }
     }
 }
