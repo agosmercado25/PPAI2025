@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PPAI2025.dtos;
 
 
 namespace PPAI2025.Entidades
@@ -144,7 +145,7 @@ namespace PPAI2025.Entidades
             return seriesTemporales;
         }
         */
-        public object buscarSeriesTemporales()
+        public List<GrupoEstacionDTO> buscarSeriesTemporales()
         {
             var gruposPorEstacion = this.SerieTemporal
             .Where(s => s.buscarEstacionSismologica() != null)
@@ -165,7 +166,13 @@ namespace PPAI2025.Entidades
             MessageBox.Show(jsonOutput);
 
 
-            return gruposPorEstacion;
+            
+
+            var gruposPorEstaciones = JsonSerializer.Deserialize<List<GrupoEstacionDTO>>(jsonOutput);
+
+            // Cargar los datos en el TreeView
+            return gruposPorEstaciones;
         }
     }
+    
 }

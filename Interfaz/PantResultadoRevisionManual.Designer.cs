@@ -39,6 +39,9 @@
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnRechazar = new System.Windows.Forms.Button();
             this.btnRevisionExperto = new System.Windows.Forms.Button();
+            this.btnVisualizarMapa = new System.Windows.Forms.Button();
+            this.btnSismograma = new System.Windows.Forms.Button();
+            this.treeAgrupados = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEventos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,6 +129,7 @@
             // 
             // btnConfirmar
             // 
+            this.btnConfirmar.Enabled = false;
             this.btnConfirmar.Location = new System.Drawing.Point(1350, 15);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(219, 85);
@@ -136,6 +140,7 @@
             // 
             // btnRechazar
             // 
+            this.btnRechazar.Enabled = false;
             this.btnRechazar.Location = new System.Drawing.Point(1350, 117);
             this.btnRechazar.Name = "btnRechazar";
             this.btnRechazar.Size = new System.Drawing.Size(219, 85);
@@ -146,6 +151,7 @@
             // 
             // btnRevisionExperto
             // 
+            this.btnRevisionExperto.Enabled = false;
             this.btnRevisionExperto.Location = new System.Drawing.Point(1350, 218);
             this.btnRevisionExperto.Name = "btnRevisionExperto";
             this.btnRevisionExperto.Size = new System.Drawing.Size(219, 85);
@@ -154,11 +160,43 @@
             this.btnRevisionExperto.UseVisualStyleBackColor = true;
             this.btnRevisionExperto.Click += new System.EventHandler(this.btnRevisionExperto_Click);
             // 
+            // btnVisualizarMapa
+            // 
+            this.btnVisualizarMapa.Enabled = false;
+            this.btnVisualizarMapa.Location = new System.Drawing.Point(1575, 15);
+            this.btnVisualizarMapa.Name = "btnVisualizarMapa";
+            this.btnVisualizarMapa.Size = new System.Drawing.Size(206, 66);
+            this.btnVisualizarMapa.TabIndex = 4;
+            this.btnVisualizarMapa.Text = "Visualizar Mapa";
+            this.btnVisualizarMapa.UseVisualStyleBackColor = true;
+            this.btnVisualizarMapa.Click += new System.EventHandler(this.solicitarOpcionVisualizarMapa_Click);
+            // 
+            // btnSismograma
+            // 
+            this.btnSismograma.Enabled = false;
+            this.btnSismograma.Location = new System.Drawing.Point(1608, 117);
+            this.btnSismograma.Name = "btnSismograma";
+            this.btnSismograma.Size = new System.Drawing.Size(153, 64);
+            this.btnSismograma.TabIndex = 5;
+            this.btnSismograma.Text = "Generar Sismograma";
+            this.btnSismograma.UseVisualStyleBackColor = true;
+            // 
+            // treeAgrupados
+            // 
+            this.treeAgrupados.Enabled = false;
+            this.treeAgrupados.Location = new System.Drawing.Point(15, 391);
+            this.treeAgrupados.Name = "treeAgrupados";
+            this.treeAgrupados.Size = new System.Drawing.Size(1326, 585);
+            this.treeAgrupados.TabIndex = 6;
+            // 
             // PantResultadoRevisionManual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2025, 1132);
+            this.Controls.Add(this.treeAgrupados);
+            this.Controls.Add(this.btnSismograma);
+            this.Controls.Add(this.btnVisualizarMapa);
             this.Controls.Add(this.btnRevisionExperto);
             this.Controls.Add(this.btnRechazar);
             this.Controls.Add(this.btnConfirmar);
@@ -185,5 +223,8 @@
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Button btnRechazar;
         private System.Windows.Forms.Button btnRevisionExperto;
+        private System.Windows.Forms.Button btnVisualizarMapa;
+        private System.Windows.Forms.Button btnSismograma;
+        private System.Windows.Forms.TreeView treeAgrupados;
     }
 }

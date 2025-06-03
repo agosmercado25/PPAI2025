@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PPAI2025.Controlador;
 using PPAI2025.Entidades;
+using PPAI2025.dtos;
 
 namespace PPAI2025.Interfaz
 {
@@ -29,11 +30,6 @@ namespace PPAI2025.Interfaz
         }
 
         public void Principal_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button1_Click(object sender, EventArgs e)
         {
             
         }
@@ -87,9 +83,43 @@ namespace PPAI2025.Interfaz
             {
                 gestor.tomarSeleccionEventoIngresado(eventoSeleccionado);
             }
+            
+            btnSismograma.Enabled = true;
             return;
         }
-           
+
+        public void solicitarOpcionVisualizarMapa()
+        {
+            btnVisualizarMapa.Enabled = true;
+        }
+
+        public void tomarIngresoOpcVisualizarMapa()
+        {
+            gestor.tomarOpcionVisualizarMapaIngresada();
+        }
+
+        public void solicitarModificacionDatos()
+        {
+            //DialogResult dialogResult = MessageBox.Show("Desea modificar datos?", "Modificar datos", MessageBoxButtons.YesNo);
+            tomarIngresoModificacionDatos();
+        }
+
+        public void tomarIngresoModificacionDatos()
+        {
+            gestor.tomarModificacionDatosIngresada();
+        }
+
+        public void solicitarSeleccionAccion()
+        {
+            MessageBox.Show("Seleccione una opcion a realizar para el evento");
+            
+            btnConfirmar.Enabled = true;
+            btnRechazar.Enabled = true;
+            btnRevisionExperto.Enabled = true;
+        }
+
+
+
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
@@ -105,5 +135,66 @@ namespace PPAI2025.Interfaz
         {
             gestor.tomarSeleccionAccionIngresada();
         }
+
+        private void solicitarOpcionVisualizarMapa_Click(object sender, EventArgs e)
+        {
+            tomarIngresoOpcVisualizarMapa();
+        }
+
+
+        public void CargarDatosEnTreeView(List<GrupoEstacionDTO> gruposPorEstacion, string alcance, string clasificacion, string origen)
+        {
+            treeAgrupados.Enabled = true;
+            // Limpiar el TreeView antes de agregar los datos
+            treeAgrupados.Nodes.Clear();
+
+            var datosSismoNode = new System.Windows.Forms.TreeNode($"Datos Sismo: \n "+$"Alcance: {alcance} \n "+$"Clasificacion: {clasificacion} \n "+$"Origen: {origen} " );
+            treeAgrupados.Nodes.Add(datosSismoNode);
+            foreach (var grupoEstacion in gruposPorEstacion)
+            {
+                // Crear un nodo para la estación sísmica
+                var estacionNode = new System.Windows.Forms.TreeNode(grupoEstacion.NombreEstacion);
+
+
+                foreach (var serie in grupoEstacion.SeriesDeEstaEstacion)
+                {
+                    // Crear un nodo para la serie
+                    var serieNode = new System.Windows.Forms.TreeNode($"Serie: {serie.CondicionAlarma} - {serie.FechaHoraRegistro.ToShortDateString()} - {serie.FrecuenciaMuestreo} - {serie.FechaHoraInicioRegistroMuestras.ToShortDateString()}");
+
+
+                    foreach (var muestra in serie.Muestras)
+                    {
+                        // Crear un nodo para la muestra
+                        var muestraNode = new System.Windows.Forms.TreeNode($"Muestra: {muestra.FechaHoraMuestra.ToShortTimeString()}");
+
+                        foreach (var detalle in muestra.DetalleMuestraSismica)
+                        {
+                            // Crear un nodo para el detalle
+                            var detalleNode = new System.Windows.Forms.TreeNode($"Detalle: Valor = {detalle.Valor} - Tipo de Dato: {detalle.TipoDato}");
+                            muestraNode.Nodes.Add(detalleNode);
+                        }
+
+                        // Agregar el nodo de la muestra a la serie
+                        serieNode.Nodes.Add(muestraNode);
+                    }
+
+                    // Agregar el nodo de la serie a la estación
+                    estacionNode.Nodes.Add(serieNode);
+                }
+
+                // Agregar el nodo de la estación al TreeView
+                treeAgrupados.Nodes.Add(estacionNode);
+            }
+           
+
+            // Expande todos los nodos para mostrar la jerarquía completa
+            treeAgrupados.ExpandAll();
+        }
+
+
     }
+
+
+
+
 }

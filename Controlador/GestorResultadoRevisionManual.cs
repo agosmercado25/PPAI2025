@@ -1,14 +1,15 @@
-﻿using System;
+﻿using PPAI2025.AccesoDatos;
+using PPAI2025.dtos;
+using PPAI2025.Entidades;
+using PPAI2025.Interfaz;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PPAI2025.Entidades;
-using PPAI2025.Interfaz;
-using PPAI2025.AccesoDatos;
 using System.Windows.Forms;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace PPAI2025.Controlador
 {
@@ -91,7 +92,33 @@ namespace PPAI2025.Controlador
             //usuario = buscarUsuarioLogueado();
             actualizarUltimoEstado(esSelec,listCambiosEstados,fechaHoraActual, esBloqRevi);
             buscarDatosSismicosEventoSeleccionado(esSelec);
+            habilitarOpcionVisualizarMapa();
+            permitirModificacionDatos();
         }
+
+        public void habilitarOpcionVisualizarMapa()
+        {
+            pantalla.solicitarOpcionVisualizarMapa();
+        }
+
+        public void tomarOpcionVisualizarMapaIngresada()
+        {
+            MessageBox.Show("No implementada");
+        }
+
+        public void permitirModificacionDatos()
+        {
+            pantalla.solicitarModificacionDatos();
+        }
+        public void tomarModificacionDatosIngresada()
+        {
+            solicitarSeleccionAccion();
+        }
+        public void solicitarSeleccionAccion()
+        {
+            pantalla.solicitarSeleccionAccion();
+        }
+
 
         public void tomarSeleccionAccionIngresada()
         {
@@ -164,7 +191,9 @@ namespace PPAI2025.Controlador
         private void buscarDatosSismicosEventoSeleccionado(EventoSismico eventoSeleccionado)
         {
             (string alcance, string clasificacion, string origen) = eventoSeleccionado.buscarDatosSismo();
-            this.seriesTemporales = eventoSeleccionado.buscarSeriesTemporales();
+            //this.seriesTemporales = eventoSeleccionado.buscarSeriesTemporales();
+            List<GrupoEstacionDTO> agrupados = eventoSeleccionado.buscarSeriesTemporales();
+            pantalla.CargarDatosEnTreeView(agrupados, alcance, clasificacion, origen);
         }
 
         public Estado buscarEstadoRechazado()

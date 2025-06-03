@@ -92,24 +92,21 @@
     <Compile Include="AccesoDatos\AD_Sismografo.cs" />
     <Compile Include="AccesoDatos\AD_TipoDato.cs" />
     <Compile Include="Controlador\GestorResultadoRevisionManual.cs" />
+    <Compile Include="dtos\GrupoEstacionDTO.cs" />
     <Compile Include="Entidades\AlcanceSismo.cs" />
     <Compile Include="Entidades\CambioEstado.cs" />
     <Compile Include="Entidades\ClasificacionSismo.cs" />
     <Compile Include="Entidades\DetalleMuestraSismica.cs" />
-    <Compile Include="Entidades\DetalleMuestraSismicaInfo.cs" />
     <Compile Include="Entidades\EstacionSismologica.cs" />
     <Compile Include="Entidades\Estado.cs" />
     <Compile Include="Entidades\EventoSismico.cs" />
     <Compile Include="Entidades\MagnitudRichter.cs" />
     <Compile Include="Entidades\MuestraSismica.cs" />
-    <Compile Include="Entidades\MuestraSismicaInfo.cs" />
     <Compile Include="Entidades\OrigenDeGeneracion.cs" />
     <Compile Include="Entidades\SerieTemporal.cs" />
-    <Compile Include="Entidades\SerieTemporalInfo.cs" />
     <Compile Include="Entidades\Sesion.cs" />
     <Compile Include="Entidades\Sismografo.cs" />
     <Compile Include="Entidades\TipoDeDato.cs" />
-    <Compile Include="Entidades\TipoDeDatoInfo.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Interfaz\Login1.cs">
       <SubType>Form</SubType>
